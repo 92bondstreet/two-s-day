@@ -188,4 +188,5 @@ coverage
 *.cookies
 
 ### two-s-day ###
+mentoree.json
 people.json
