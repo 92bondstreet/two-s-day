@@ -15,12 +15,12 @@ const shuffleArray = arr => arr
  * @param  {Array} pairs
  * @return {Array}
  */
-module.exports = (mentoree, pairs) => {
+module.exports = (mentoree, pairs, week = moment().week()) => {
   const shuffle = shuffleArray(pairs);
   const {name, email} = mentoree;
 
   return shuffle.filter(pair => pair.name !== name).map((pair, index) => {
-    const tuesday = moment().startOf('isoWeek').add(index + 1, 'week').day(2);
+    const tuesday = moment().week(week).startOf('isoWeek').add(index + 1, 'week').day(2);
     const date = {
       'date': tuesday.format('YYYY-MM-DD')
     };

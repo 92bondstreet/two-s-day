@@ -1,16 +1,19 @@
 const sessions = require('./sessions');
+const {log} = require('gcal');
 const MENTOREE = require('./mentoree.json');
 const MENTORS = require('./people.json');
 const twosday = require('./index');
 
-const events = sessions(MENTOREE, MENTORS);
+const WEEK = 43;
+
+const events = sessions(MENTOREE, MENTORS, WEEK);
 
 console.log(JSON.stringify(events, null, 2));
 
 async function bulk () {
-  const result = await twosday(MENTOREE, MENTORS);
+  const results = await twosday(MENTOREE, MENTORS, WEEK);
 
-  console.log(result);
+  log.results(results);
 }
 
 bulk();

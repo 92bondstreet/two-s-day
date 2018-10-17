@@ -7,8 +7,8 @@ const sessions = require('./sessions');
  * @param  {Array} pairs
  * @return {Array}
  */
-module.exports = async (mentoree, pairs) => {
-  const events = sessions(mentoree, pairs);
+module.exports = async (mentoree, pairs, week) => {
+  const events = sessions(mentoree, pairs, week);
 
   return await api.bulk(events);
 };
