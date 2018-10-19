@@ -25,7 +25,15 @@ const MENTORS = [{
   'email': 'awesome-c@mentor.com'
 }];
 
-const events = twosday(MENTOREE, MENTORS);
+async function generate () {
+  const events = await twosday(MENTOREE, MENTORS);
 
-console.log(JSON.stringify(events, null, 2));
+  console.log(events);
+}
+
+generate();
 ```
+
+## Google Calendar
+
+Based on [gcal-cli authentication](https://github.com/92bondstreet/gcal-cli#authentication)
